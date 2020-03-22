@@ -1,38 +1,38 @@
-// // Given an array of numbers, return a new array that has only the numbers that are 5 or greater.
-// function fiveAndGreaterOnly(arr) {
-//     // your code here
-//     return arr.filter(function(value) {
-//         return value >= 5;
-//     })
-// }
+// Given an array of numbers, return a new array that has only the numbers that are 5 or greater.
+function fiveAndGreaterOnly(arr) {
+    // your code here
+    return arr.filter(function(value) {
+        return value >= 5;
+    })
+}
 
 
-// /**
-//  * Give a list of students, filter out non-female 
-//  */
+/**
+ * Give a list of students, filter out non-female 
+ */
 
-// var members = [
-//     { name: 'Lan', gender: 'female' },
-//     { name: 'Linh', gender: 'female' },
-//     { name: 'Trung', gender: 'male' },
-//     { name: 'Peter', gender: 'gay' }
-// ];
+var members = [
+    { name: 'Lan', gender: 'female' },
+    { name: 'Linh', gender: 'female' },
+    { name: 'Trung', gender: 'male' },
+    { name: 'Peter', gender: 'gay' }
+];
 
-// function filterOutFemales(members) {
-//     // your code here
-//     return members.filter(function(obj) {
-//         return obj.gender != 'female';
-//     })
-// }
-// // newmem = filterOutFemales;
+function filterOutFemales(members) {
+    // your code here
+    return members.filter(function(obj) {
+        return obj.gender != 'female';
+    })
+}
+// newmem = filterOutFemales;
 
-// // Given an array of numbers, return a new array that only includes the even numbers.
-// function evensOnly(arr) {
-//     // your code here!
-//     return arr.filter(function(value) {
-//         return value % 2 === 0;
-//     })
-// }
+// Given an array of numbers, return a new array that only includes the even numbers.
+function evensOnly(arr) {
+    // your code here!
+    return arr.filter(function(value) {
+        return value % 2 === 0;
+    })
+}
 
 
 
@@ -49,34 +49,34 @@
  *  ];
  */
 
-// var listProducts = [
-//     { id: 1, categoryId: 1, name: 'Tivi' },
-//     { id: 2, categoryId: 1, name: 'Tủ lạnh' },
-//     { id: 3, categoryId: 3, name: 'Ghế sofa' },
-//     { id: 4, categoryId: 1, name: 'Máy giặt' },
-//     { id: 5, categoryId: 2, name: 'Chén bát' },
-//     { id: 6, categoryId: 2, name: 'Nồi cơm điện' },
-//     { id: 7, categoryId: 3, name: 'Cửa kính' },
-//     { id: 8, categoryId: 1, name: 'Điều hoà' },
-//     { id: 9, categoryId: 3, name: 'Bàn tròn' },
-//     { id: 10, categoryId: 2, name: 'Lò vi sóng' },
-// ]
+var listProducts = [
+    { id: 1, categoryId: 1, name: 'Tivi' },
+    { id: 2, categoryId: 1, name: 'Tủ lạnh' },
+    { id: 3, categoryId: 3, name: 'Ghế sofa' },
+    { id: 4, categoryId: 1, name: 'Máy giặt' },
+    { id: 5, categoryId: 2, name: 'Chén bát' },
+    { id: 6, categoryId: 2, name: 'Nồi cơm điện' },
+    { id: 7, categoryId: 3, name: 'Cửa kính' },
+    { id: 8, categoryId: 1, name: 'Điều hoà' },
+    { id: 9, categoryId: 3, name: 'Bàn tròn' },
+    { id: 10, categoryId: 2, name: 'Lò vi sóng' },
+]
 
-// var categories = [
-//     { id: 1, name: 'Đồ điện tử' },
-//     { id: 2, name: 'Đồ gia dụng' },
-//     { id: 3, name: 'Nội thất' }
-// ];
+var categories = [
+    { id: 1, name: 'Đồ điện tử' },
+    { id: 2, name: 'Đồ gia dụng' },
+    { id: 3, name: 'Nội thất' }
+];
 
-// function filterProductsByCategoryId(products, categoryId) {
-//     // your code here! 
-//     result = products.filter(function(obj) {
-//         return obj.categoryId === categoryId;
+function filterProductsByCategoryId(products, categoryId) {
+    // your code here! 
+    result = products.filter(function(obj) {
+        return obj.categoryId === categoryId;
 
-//     })
-//     return result;
-// }
-// console.log(filterProductsByCategoryId(listProducts, 2));
+    })
+    return result;
+}
+console.log(filterProductsByCategoryId(listProducts, 2));
 
 
 
@@ -92,36 +92,22 @@
  */
 
 function removeDuplicate(array) {
-    let template = array;
-    for (let index = 0; index < array.length; ++index) {
-        temp = array[index];
-        values = array.filter((x) => (x === temp));
-        console.log(array.indexOf(values));
+    // let template = array;
+
+    for (var index = 0; index < array.length; index++) {
+        do {
+            let temp = array[index];
+            var ind = array.indexOf(temp, index + 1);
+            // console.log("index=" + index + ";   ind=" + ind + "; temp=" + temp);
+            if (ind > 0) {
+                array.splice(ind, 1);
+            } else break;
+        } while (ind > 0);
     }
-
-
-
-
-
-
-
-
-
-    // write code here...
-    // for (let index = 0; index < array.length; ++index) {
-    //     ind = array.indexOf(
-    //             array.filter(
-    //                 function(x) {
-    //                     return array[index] === x;
-    //                 }))
-    //         // array.splice(ind, 1);
-    //     console.log(ind);
-    // }
-
-    // return array;
-
+    return array;
 }
-removeDuplicate([1, 1, 2, 3, 3, 3, 5, 2, 1, 4]);
+result = removeDuplicate([1, 1, 2, 3, 3, 6, 7, 3, 8, 5, 4, 9, 3, 5, 2, 1, 4]);
+console.log(result);
 
 
 
