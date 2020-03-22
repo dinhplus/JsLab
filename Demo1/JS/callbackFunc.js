@@ -1,3 +1,12 @@
+/** 
+ *  Hello
+ * helo
+ */
+
+/*
+Yay !
+* /
+
 /**
  * 1. Viết hàm sayHello làm nhiệm vụ log ra màn hình 'I love Coders.Tokyo'
  * 2. Viết hàm countAndDo nhận vào tham số là 1 hàm. Hàm này log ra màn hình từ 1 đến 10 dùng vòng lặp for. Sau khi log xong, chạy hàm được truyền vào ở tham số
