@@ -41,10 +41,10 @@ function removeProp(prop) {
  * Viết hàm countProperty để in ra độ dài của một đối tượng
  * @param{object}
  * @return{number}
- * 
- * Example: 
+ *
+ * Example:
  * var student = {
- *      name: "Jerry", 
+ *      name: "Jerry",
  *      age: 14,
  *      role: "student"
  *  }
