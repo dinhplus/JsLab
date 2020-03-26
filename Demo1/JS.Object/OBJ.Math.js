@@ -8,11 +8,11 @@ function powerup(arr) {
     })
 }
 
-/** 
+/**
  * Dùng hàm average tính điểm trung bình 3 môn của một học sinh.
  * Làm tròn điểm trung bình
  * Ví dụ: [8, 8, 6.75]  => 8
- * Gợi ý: Dùng Math.round 
+ * Gợi ý: Dùng Math.round
  */
 
 let marks = [8, 8, 6.75];
@@ -26,9 +26,9 @@ function average(arr) {
         )) / arr.length)
 }
 
-// console.log(average(marks));
+console.log(average(marks));
 
-/** 
+/**
  * Viết hàm positiveNumber để chuyển các số âm trong một mảng thành các số dương.
  * Yêu cầu sử dụng Math Object
  */
@@ -48,9 +48,9 @@ function random() {
 }
 // console.log(random());
 
-/** 
+/**
  * Viết hàm rightTriangle nhập vào 3 cạnh của một tam giác.
- * Cho biết đó có phải là tam giác vuông hay không? 
+ * Cho biết đó có phải là tam giác vuông hay không?
  */
 
 function rightTriangle(a, b, c) {
@@ -64,10 +64,10 @@ function rightTriangle(a, b, c) {
 
 }
 
-/** 
- * Viết hàm circumferenceOfCircle() tính chu vi và hàm acreageOfCircle() tính diện tích hình tròn 
+/**
+ * Viết hàm circumferenceOfCircle() tính chu vi và hàm acreageOfCircle() tính diện tích hình tròn
  * khi biết bán kính
- * Với PI = 3.14  
+ * Với PI = 3.14
  */
 
 function circumferenceOfCircle(r) {
@@ -79,7 +79,7 @@ function acreageOfCircle(r) {
     return Math.PI * Math.pow(r, 2);
 }
 
-/** 
+/**
  * Viết hàm trigonim để tính 3 giá trị sin cos tan của một số nhập vào
  * Example: trigonim(45) = [ '0.851', '0.525', '1.620' ]
  * Gợi ý: Sử dụng toFixed() method
