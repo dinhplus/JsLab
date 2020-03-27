@@ -12,7 +12,7 @@ var contacts;
 function loadData() {
     contacts = JSON.parse(fs.readFileSync("./data.json"));
     // console.log(contact);
-    return contact;
+    return contacts;
 }
 
 function saveAll() {
@@ -34,6 +34,7 @@ function showMenu() {
             break;
         case "2":
             searchContact();
+            main();
             break;
             // case "3":
             //     showListContact();
@@ -56,11 +57,51 @@ function showCreateContact() {
     let newContact = { name: contactName, phoneNumber: contactPhoneNumber };
     contacts.push(newContact);
 }
-
+/**
+ * Nhập vào $value => Phân giải chuỗi value thành mảng
+ *- Quét qua từng phần tử Contacts.name,
+ *  - phân giải chuỗi thành dạng mảng
+ *  - so sánh từng phần tử mảng value[] với mảng name[],
+ *  - Nếu trùng khớp toàn bộ giá trị của value với name thì getResult(),
+ *  - nếu lệch một kí tự thì chuyển qua object khác
+ *- cũng làm tương tự như với name;
+ *
+ */
 function searchContact() {
-    for (const iterator of contacts) {
-        let value = readlineSync.question("contact Name or phone Number: ");
+    var result = [];
+    let checkList = [];
+    let value = readlineSync.question("contact Name or phone Number: ");
+
+    for (const key in contacts) {
+        var compareLetters = contacts[key].name + contacts[key].phoneNumber;
+        checkList.push([compareLetters, key]);
     }
+
+    for (const comp of checkList) {
+        var count = 0;
+        var temp;
+        for (let index = 0; index < value.length; ++index) {
+            for (let ind = 0; ind < comp[0].length; ind++) {
+                if (value[index] == comp[0][ind]) {
+                    count++;
+                    break;
+                }
+            }
+            if (count === value.length) {
+                temp = checkList.indexOf(comp);
+                result = result.concat(getResult(temp));
+            }
+        }
+    }
+
+    console.log(result);
+    return result;
+}
+
+function getResult(index) {
+    var result = [];
+    result.push(contacts[index]);
+    return result;
 }
 
 function main() {
@@ -75,6 +116,7 @@ function main() {
             break;
         case "2":
             searchContact();
+            main();
             break;
             // case "3":
             //     showListContact();
