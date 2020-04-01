@@ -50,7 +50,20 @@ function greatestMultipliesCommon(numb1, numb2) {
 // }
 // passwordValidator(result);
 
-a = "hello world";
-for (const iterator of a) {
-    console.log(iterator);
+// a = "hello world";
+// for (const iterator of a) {
+//     console.log(iterator);
+// }
+/**
+ * Tạo 1 hàm doAfter nhận vào 2 tham số:
+ *  - Tham số thứ 1: 1 function
+ *  - Tham số thứ 2: Thời gian x (ms)
+ * Hàm này sẽ gọi function sau 1 khoảng thời gian x ms
+ */
+
+function doAfter(func, x) {
+    setTimeout(func, x);
 }
+doAfter(() => {
+    console.log("ahihi");
+}, 10001);

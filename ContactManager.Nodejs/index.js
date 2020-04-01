@@ -37,22 +37,22 @@ function showMenu() {
             main();
             break;
         case "3":
-            console.log('chọn số tương ứng với contact để chỉnh sửa')
+            console.log("chọn số tương ứng với contact để chỉnh sửa");
             showListContact();
-            var selectToEdit = readlineSync.question('>>');
+            var selectToEdit = readlineSync.question(">>");
             editContact(selectToEdit - 1);
             saveAll();
-            if (saveAll()) console.log('saved Done!');
+            if (saveAll()) console.log("saved Done!");
             main();
             break;
         case "4":
-            console.log('chọn số tương ứng với contact để chỉnh Xóa')
+            console.log("chọn số tương ứng với contact để chỉnh Xóa");
             showListContact();
-            var selectToDelete = readlineSync.question('>>')
+            var selectToDelete = readlineSync.question(">>");
             deleteContact(selectToDelete - 1);
             saveAll();
-            console.log('Đã xóa!');
-            main()
+            console.log("Đã xóa!");
+            main();
             break;
         default:
             break;
@@ -115,24 +115,35 @@ function getResult(index) {
 
 function showListContact() {
     for (let index = 0; index < contacts.length; index++) {
-        console.log((index + 1) + '. ' + (contacts[index].name + ':' + contacts[index].phoneNumber));
+        console.log(
+            index +
+            1 +
+            ". " +
+            (contacts[index].name + ":" + contacts[index].phoneNumber)
+        );
     }
 }
 
 function editContact(key) {
-    console.log('The old name is:', contacts[key]['name']);
-    let newName = readlineSync.question('New name :');
-    console.log('The old phone Number is:', contacts[key]['phoneNumber']);
-    let newPhoneNumber = readlineSync.question('New Phone Number :');
+    console.log("The old name is:", contacts[key]["name"]);
+    let newName = readlineSync.question("New name :");
+    console.log("The old phone Number is:", contacts[key]["phoneNumber"]);
+    let newPhoneNumber = readlineSync.question("New Phone Number :");
     contacts[key] = { name: newName, phoneNumber: newPhoneNumber };
     return contacts;
 }
 
 function deleteContact(key) {
-    console.log('Do you really want to delete this contact?' + '\n' + contacts[key]['name'] + ':' + contacts[key]['phoneNumber']);
-    console.log('enter yes to delete, any letter to Back menu');
+    console.log(
+        "Do you really want to delete this contact?" +
+        "\n" +
+        contacts[key]["name"] +
+        ":" +
+        contacts[key]["phoneNumber"]
+    );
+    console.log("enter yes to delete, any letter to Back menu");
     let validToDelete = readlineSync.question("(yes/no):");
-    if (validToDelete === 'yes') {
+    if (validToDelete === "yes") {
         contacts.splice(key, 1);
     } else main();
     return contacts;
@@ -153,22 +164,22 @@ function main() {
             main();
             break;
         case "3":
-            console.log('chọn số tương ứng với contact để chỉnh sửa')
+            console.log("chọn số tương ứng với contact để chỉnh sửa");
             showListContact();
-            var selectToEdit = readlineSync.question('>>');
+            var selectToEdit = readlineSync.question(">>");
             editContact(selectToEdit - 1);
             saveAll();
-            console.log('saved Done!');
+            console.log("saved Done!");
             main();
             break;
         case "4":
-            console.log('chọn số tương ứng với contact để chỉnh Xóa')
+            console.log("chọn số tương ứng với contact để chỉnh Xóa");
             showListContact();
-            var selectToDelete = readlineSync.question('>>')
+            var selectToDelete = readlineSync.question(">>");
             deleteContact(selectToDelete - 1);
             saveAll();
-            console.log('Đã xóa!');
-            main()
+            console.log("Đã xóa!");
+            main();
             break;
         default:
             break;
