@@ -169,7 +169,7 @@ function main() {
             var selectToEdit = readlineSync.question(">>");
             editContact(selectToEdit - 1);
             saveAll();
-            console.log("saved Done!");
+            console.log('saved Done!');
             main();
             break;
         case "4":
