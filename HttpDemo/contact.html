@@ -11,8 +11,8 @@
 
 	<input type="text" id="searchInput" placeholder="Search by phone number..." />
 	<ul id="userList">
-
 	</ul>
+	<!-- script  -->
 	<script>
 		var users = [{
 				name: 'Thinh',
@@ -37,7 +37,7 @@
 			userList.innerHTML = content.join('');
 		}
 
-		render(users);
+
 
 		searchInput.addEventListener('keyup', function (event) {
 			// sự kiện 'change' chỉ xảy ra khi input bị mất focus
@@ -47,7 +47,19 @@
 			// - sử dụng array.filter và string.indexOf để lọc users array, trả về những phần tử có số điện thoại chứa string lưu trong biến `value`
 			// Sử dụng Chrome Developer Tools để xem giá trị hiển thị ra sau mỗi lần gõ
 			var value = searchInput.value;
-			console.log(value);
+			// console.log(value);
+			var onSearch = users.filter((user) => {
+				let temp = false;
+				for (let index = 0; index < value.length; index++) {
+					if (user.name.indexOf(value[index]) === -1) {
+						return false;
+					} else temp = true;
+
+				}
+				return temp;
+			});
+			render(onSearch);
+
 		});
 	</script>
 </body>
