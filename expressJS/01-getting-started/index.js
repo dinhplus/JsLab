@@ -1,4 +1,4 @@
-const express = require('./01-getting-started/node_modules/express');
+const express = require('express');
 const app = express();
 const port = 9000;
 
