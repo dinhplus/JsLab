@@ -59,10 +59,37 @@ app.post("/users/create", (req, res) => {
  * Show user detail
  */
 app.get("/users/:id", (req, res) => {
+        let id = req.params.id;
+        res.render("users/user", {
+            user: db.get("users").find({
+                id: id
+            }).value()
+        })
+    })
+    /**
+     * Upadate user profile
+     */
+
+app.get("/users/edit/:id", (req, res) => {
     let id = req.params.id;
-    res.render("users/user", {
+    res.render("users/edit", {
         user: db.get("users").find({
             id: id
         }).value()
     })
+})
+app.post("/users/update/:id", (req, res) => {
+    let id = req.params.id;
+    db.get("users").find({
+        id: id
+    }).assign(req.body).write();
+    res.redirect("/users");
+})
+
+app.get("/users/delete/:id", (req, res) => {
+    let id = req.params.id;
+    db.get("users").remove({
+        id: id
+    }).write();
+    res.redirect("/users");
 })
