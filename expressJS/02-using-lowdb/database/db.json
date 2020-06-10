@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "name": "Đỗ Xuân Đình",
+      "age": "22",
+      "id": "h6fDtGHjr"
+    },
+    {
+      "name": "Bùi Văn Nguyện",
+      "age": "30",
+      "id": "HZcgiDbCA"
+    },
+    {
+      "name": "Hưng",
+      "age": "24",
+      "id": "eE_raQPdJ"
+    }
+  ],
+  "products": []
+}

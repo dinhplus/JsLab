@@ -1,0 +1,26 @@
+
+form(action="/users/search", method="get")
+    input(type="text", name="q")
+    button(type="submit") Search!
+h1 User List
+ul
+    each user in users
+        li
+            span #{user.name +' : '+ user.age}  tuổi &nbsp
+            span
+                a(href="/users/"+user.id) View user
+
+h2 Insert User after
+
+form(action="/users/create", method="post")
+    table#insert-user
+        tr
+            td name
+            td
+                input(type="text" name="name" value="")
+        tr
+            td age
+            td
+                input(type="text" name = "age" value="")
+    br
+    button.btn.btn-primary(type='submit') Insert
