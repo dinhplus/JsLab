@@ -1,0 +1,6 @@
+extends ../layouts/header
+block header
+        form(action="/users/update/"+user.id, method="post")
+            input(type="text" name="name" value=user.name)
+            input(type="text" name="age" value=user.age)
+            button(type="submit") Update
