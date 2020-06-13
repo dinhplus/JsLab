@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({
 }));
 var $usersList = JSON.parse(fs.readFileSync('./db/users.json'));
 // console.log($usersList);
-app.set('view engine', 'pug');
+app.set('view engine', 'pug');	
 app.set('views', './views');
 
 app.get('/', (req, res) =>
