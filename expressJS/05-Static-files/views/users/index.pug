@@ -1,31 +1,21 @@
 extends ../layouts/header
 block header
-    form(action="/users/search", method="get")
-        input(type="search", name="q")
-        //- input(type="text", name="q")
-        button.btn.btn-primary(type="submit") Search!
-    h1 User List
-    ul
-        each user in users
-            li
-                span #{user.name +' : '+ user.age}  tuổi &nbsp
-                span
-                    a(href="/users/"+user.id) View user &nbsp
-                    a(href="/users/edit/"+user.id) Edit user profile &nbsp
-                    a(href="/users/delete/"+user.id) Delete user
-
-
-    h2 Insert User after
-
-    form(action="/users/create", method="post")
-        table#insert-user
+    .container-md
+        h2 User List
+        table(style="width:100%")
             tr
-                td name
-                td
-                    input(type="text" name="name" value="")
-            tr
-                td age
-                td
-                    input(type="text" name = "age" value="")
-        br
-        button.btn.btn-primary(type='submit') Insert
+                th Name
+                th Phone
+                th Age
+            each user in users
+                tr
+                    td= user.name
+                    td= user.phone
+                    td= user.age
+                    td
+                        a(href="/users/" + user.id)
+                            button.btn.btn-primary(type="button", action="users/" + user.id) Detail
+                        a(href="/users/edit/" + user.id)
+                            button.btn.btn-primary(type="button", action="users/edit/" + user.id) Edit
+                        a(href="/users/delete/" + user.id)
+                            button.btn.btn-primary(type="button", action="users/delete/" + user.id) Delete

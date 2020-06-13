@@ -1,6 +1,14 @@
 extends ../layouts/header
 block header
-        form(action="/users/update/"+user.id, method="post")
-            input(type="text" name="name" value=user.name)
-            input(type="text" name="age" value=user.age)
-            button(type="submit") Update
+
+    .container
+        form(action="/users/update"+user.id, method="post")
+
+                        .form-group
+                            label(for="name") Name
+                            input#name.form-control(name="name",type="text",value=user.name)
+                            label(for="phone") Phone
+                            input#phone.form-control(name="phone",type="text",value=user.phone)
+                            label(for="age") Age
+                            input#age.form-control(name="age",type="text",value=user.name)
+                            button.btn.btn-primary(type="primary") Update!

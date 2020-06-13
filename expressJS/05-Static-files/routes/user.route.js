@@ -19,6 +19,7 @@ router.get('/search', userController.search);
 /**
  * Generate new user and store them to Database
  */
+router.get('/create', userController.create);
 router.post('/create', userController.postUser);
 
 /**

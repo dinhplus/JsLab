@@ -21,8 +21,29 @@ module.exports.search = (req, res) => {
         users: matchUsers,
     });
 }
+module.exports.create = (req, res) => {
+    res.render('users/createUser');
+}
 module.exports.postUser = (req, res) => {
     req.body.id = shortid.generate();
+    var errors = [];
+    if (!req.body.name) {
+        errors.push('name');
+    }
+    if (!req.body.phone) {
+        errors.push('phone');
+    }
+    if (!req.body.age) {
+        errors.push('age');
+    }
+    if (errors.length > 0) {
+        var value = req.body;
+        res.render('users/createUser', {
+            errors: errors,
+            value: value
+        });
+        return;
+    }
     db.get('users').push(req.body).write();
     res.redirect('/users');
 }
