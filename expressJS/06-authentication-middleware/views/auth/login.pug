@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="/bootstrap/css/bootstrap.min.css", rel="stylesheet")
+
+    body
+        script(src="/bootstrap/js/jquery-3.4.1.min.js")
+        script(src="/bootstrap/js/bootstrap.min.js")
+        script(src="/bootstrap/js/bootstrap.bundle.min.js")
+        .container
+            h2.text-center Login to continute
+                if errors
+                    each error in errors
+                        .alert.alert-danger= error + " is required"
+
+            form(action="/login", method="post")
+                        .form-group
+                            label(for="name") email
+                            input#email.form-control(name="email",type="text", value=value?value.email:"")
+                            label(for="phone") passwords
+                            input#passwords.form-control(name="passwords",type="text", value=value?value.passwords:"")
+                            button.btn.btn-primary Login!
+.

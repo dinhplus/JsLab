@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "name": "Đỗ Xuân Đình",
+      "age": "28",
+      "id": "h6fDtGHjr",
+      "phone": "0397851610",
+      "email": "admin@admin.com",
+      "passwords": "123456",
+      "currentSession": "URJ74uMqf"
+    },
+    {
+      "name": "Bùi Văn Nguyện",
+      "age": "29",
+      "id": "HZcgiDbCA",
+      "email": "admin12@admin.com",
+      "passwords": "123456"
+    },
+    {
+      "name": "lew lew",
+      "age": "23",
+      "id": "_wUQS-eDL",
+      "phone": "0397851610",
+      "email": "12admin@admin.com",
+      "passwords": "123456"
+    },
+    {
+      "name": "his his",
+      "age": "12",
+      "id": "2DhwwZsml",
+      "email": "admin@admin.com",
+      "passwords": "123456"
+    },
+    {
+      "name": "Thử cái nè",
+      "phone": "34839473287",
+      "age": "12",
+      "id": "Tc9xR1Wyz"
+    },
+    {
+      "name": "Mai Thuys",
+      "phone": "123921764",
+      "age": "1000",
+      "id": "MMiSaBxnn"
+    },
+    {
+      "name": "ehfuiwh fouh",
+      "phone": "3243",
+      "age": "4332",
+      "id": "Auu6XyD3S"
+    },
+    {
+      "name": "Hôm nay là thứ bảy",
+      "phone": "3816421",
+      "age": "32",
+      "id": "ARM6kX_2R"
+    }
+  ],
+  "products": []
+}
