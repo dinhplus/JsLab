@@ -3,7 +3,8 @@
     {
       "name": "Đỗ Xuân Đình",
       "age": "28",
-      "id": "h6fDtGHjr"
+      "id": "h6fDtGHjr",
+      "phone": "0397851610"
     },
     {
       "name": "Bùi Văn Nguyện",
@@ -13,7 +14,8 @@
     {
       "name": "lew lew",
       "age": "23",
-      "id": "_wUQS-eDL"
+      "id": "_wUQS-eDL",
+      "phone": "0397851610"
     },
     {
       "name": "his his",
@@ -25,6 +27,12 @@
       "phone": "34839473287",
       "age": "12",
       "id": "Tc9xR1Wyz"
+    },
+    {
+      "name": "Mai Thuys",
+      "phone": "123921764",
+      "age": "1000",
+      "id": "MMiSaBxnn"
     }
   ],
   "products": []
