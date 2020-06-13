@@ -22,16 +22,17 @@ module.exports.search = (req, res) => {
     });
 }
 module.exports.create = (req, res) => {
+
     res.render('users/createUser');
 }
 module.exports.postUser = (req, res) => {
     req.body.id = shortid.generate();
-
     db.get('users').push(req.body).write();
     res.redirect('/users');
 }
 module.exports.showUser = (req, res) => {
     let id = req.params.id;
+
     res.render('users/user', {
         user: db
             .get('users')
