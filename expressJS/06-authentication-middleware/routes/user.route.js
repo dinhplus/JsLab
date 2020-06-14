@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const shortid = require('shortid');
+// const shortid = require('shortid');
 // const db = require('../db');
 const userController = require('../controllers/user.controller');
 const userValidate = require('../validate/user.validate');

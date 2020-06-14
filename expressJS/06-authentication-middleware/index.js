@@ -18,18 +18,9 @@ app.use(
         extended: true,
     })
 );
-app.use(cookiePaser());
+app.use(cookiePaser('ThisIsmyCOoki3s3897dnseuaf9we'));
 app.listen(port, () => console.log('App listenning on port ' + port));
 app.use('/users', middleware.authMiddleWare, userRoute);
 app.get('/', middleware.authMiddleWare, (req, res) => res.render('layouts/home'));
 app.use('/login', authRoute);
 // code below
-
-/**
- * Cookies
- * => Set cookie and stored cookie on client
- */
-// app.get('/setcookie', (req, res, next) => {
-//     res.cookie("userSession", shortid.generate());
-//     res.send("saliughaluishd");
-// });

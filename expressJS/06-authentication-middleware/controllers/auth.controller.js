@@ -1,4 +1,5 @@
 const shortid = require('shortid');
+const md5 = require('md5');
 var db = require('../db');
 
 var users = db.get('users').value();
@@ -13,9 +14,21 @@ module.exports.postLogin = (req, res, next) => {
     let user = db.get('users').find({
         email: email
     }).value();
-    if (passwords = user.passwords) {
+    if (!user || !user.passwords) {
+        var err = " Email or passwords is incorrect! Please input  correct account!";
+        var value = res.body;
+        res.render('auth/login', {
+            err: err,
+            value: value
+        });
+        return;
+    }
+    let hashPasswords = md5(passwords)
+    if (hashPasswords = user.passwords) {
         let cookie = shortid.generate()
-        res.cookie("userCookie", cookie);
+        res.cookie("userCookie", cookie, {
+            signed: true
+        });
         //stored current session to db.
         // console.log(res.cookies);
         user.currentSession = cookie;

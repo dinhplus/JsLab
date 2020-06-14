@@ -1,15 +1,16 @@
 var db = require('../db');
 
 module.exports.authMiddleWare = (req, res, next) => {
-    var checkLogin = db.get('users').find({
-        currentSession: req.cookies.userCookie
+    var user = db.get('users').find({
+        currentSession: req.signedCookies.userCookie
     }).value();
-    console.log(checkLogin);
-    if (!checkLogin) {
+    // console.log(checkLogin);
+    if (!user) {
         res.redirect('/login');
     } else {
 
-        console.log('logined');
+        res.locals.userName = user.name;
+        console.log('new session with cookies ', req.signedCookies.userCookie, 'logined!');
     }
 
     next();

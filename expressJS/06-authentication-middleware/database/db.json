@@ -1,20 +1,21 @@
 {
   "users": [
     {
-      "name": "Đỗ Xuân Đình",
+      "name": "Admin",
       "age": "28",
       "id": "h6fDtGHjr",
       "phone": "0397851610",
       "email": "admin@admin.com",
-      "passwords": "123456",
-      "currentSession": "URJ74uMqf"
+      "passwords": "6ac1e56bc78f031059be7be854522c4c",
+      "currentSession": "r1N9XmTAK"
     },
     {
       "name": "Bùi Văn Nguyện",
       "age": "29",
       "id": "HZcgiDbCA",
       "email": "admin12@admin.com",
-      "passwords": "123456"
+      "passwords": "6ac1e56bc78f031059be7be854522c4c",
+      "phone": "34839473287"
     },
     {
       "name": "lew lew",
@@ -22,14 +23,14 @@
       "id": "_wUQS-eDL",
       "phone": "0397851610",
       "email": "12admin@admin.com",
-      "passwords": "123456"
+      "passwords": "6ac1e56bc78f031059be7be854522c4c"
     },
     {
       "name": "his his",
       "age": "12",
       "id": "2DhwwZsml",
-      "email": "admin@admin.com",
-      "passwords": "123456"
+      "email": "admin2@admin.com",
+      "passwords": "6ac1e56bc78f031059be7be854522c4c"
     },
     {
       "name": "Thử cái nè",
