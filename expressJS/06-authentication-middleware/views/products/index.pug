@@ -1,0 +1,27 @@
+extends ../layouts/header
+block header
+    .container
+        .row
+            if products
+                each product in products
+                    //- - console.log(product)
+                    .card(style='width: 250px;margin:1.5%')
+                        img.card-img-top(src=product.image, alt='Card image cap')
+                        .card-body
+                            h5.card-title #{product.name}
+                            h5.card-title Price: #{product.price}
+                            p.card-text
+                                #{product.description}
+                            a.btn.btn-primary(href='/product/'+product.id) Detail
+    nav(aria-label='Page navigation example')
+        ul.pagination.justify-content-center
+            li.page-item
+                a.page-link(href='/products?page='+(currentPage-1)) Previous
+
+            -for(var index = 1;index<=pageQuantiy;index++)
+                - console.log(index);
+                li.page-item
+                    a.page-link(href='/products?page='+index) #{index}
+
+            li.page-item
+                a.page-link(href='/products?page='+(currentPage+1)) Next
