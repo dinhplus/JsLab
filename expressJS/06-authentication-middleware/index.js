@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookiePaser = require('cookie-parser');
@@ -18,9 +19,11 @@ app.use(
         extended: true,
     })
 );
-app.use(cookiePaser('ThisIsmyCOoki3s3897dnseuaf9we'));
+app.use(cookiePaser(process.env.SESSION_SECRET));
 app.listen(port, () => console.log('App listenning on port ' + port));
 app.use('/users', middleware.authMiddleWare, userRoute);
-app.get('/', middleware.authMiddleWare, (req, res) => res.render('layouts/home'));
+app.get('/', middleware.authMiddleWare, (req, res) =>
+    res.render('layouts/home')
+);
 app.use('/login', authRoute);
 // code below
