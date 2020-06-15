@@ -9,6 +9,7 @@ module.exports.index = (req, res, next) => {
         pageQuantity: parseInt(res.locals.pageQuantity),
         currentPage: parseInt(res.locals.page),
         q: res.locals.q,
+        isAdmin: res.locals.isAdmin,
     })
 
 }
@@ -32,4 +33,20 @@ module.exports.show = (req, res, next) => {
             id: id
         }).value()
     })
+}
+module.exports.create = (req, res, next) => {
+    res.render('products/create', {
+        isAdmin: res.locals.isAdmin,
+    });
+}
+module.exports.postProduct = (req, res, next) => {
+    if (!res.locals.isAdmin) {
+        // Tạm thời cứ redirect về trang đăng nhập trước đã, về sau sẽ bổ sung phần bảo vệ dữ liệu đã nhập
+        res.redirect('/admin/login');
+    }
+    if (res.locals.isAdmin) {
+        req.body.id = shortid.generate();
+        db.get('products').push(req.body).write();
+        res.redirect('/products', 301);
+    }
 }

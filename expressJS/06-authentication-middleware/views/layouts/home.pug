@@ -1,2 +1,73 @@
 extends ../layouts/header
 block header
+    .container
+        .row
+            if products
+                each product in products
+                    //- - console.log(product)
+                    .card(style='width: 250px;margin:1.5%')
+                        img.card-img-top(src=product.image, alt='Card image cap')
+                        .card-body
+                            h5.card-title #{product.name}
+                            h5.card-title Price: #{product.price}
+                            a.btn.btn-primary(href='/products/show/'+product.id) Detail
+        if !q
+            nav(aria-label='Page navigation example')
+                ul.pagination.justify-content-center
+                    if currentPage>5
+                        li.page-item
+                            a.page-link(href='/products?page='+(currentPage-5)) #{"<<"}
+                    if currentPage>1
+                        li.page-item
+                            a.page-link(href='/products?page='+(currentPage-1)) Previous
+                    if currentPage>2
+                        li.page-item
+                            a.page-link(href='/products?page='+(currentPage-2)) #{currentPage-2}
+                    if currentPage>1
+                        li.page-item
+                            a.page-link(href='/products?page='+(currentPage-1)) #{currentPage-1}
+                    li.page-item
+                        a.page-link(href='/products?page='+(currentPage))
+                            b= currentPage
+                    if currentPage<=pageQuantity-1
+                        li.page-item
+                            a.page-link(href='/products?page='+(currentPage+1)) #{currentPage+1}
+                    if currentPage<=pageQuantity-2
+                        li.page-item
+                            a.page-link(href='/products?page='+(currentPage+2)) #{currentPage+2}
+                    if currentPage<=pageQuantity-1
+                        li.page-item
+                            a.page-link(href='/products?page='+(currentPage+1)) Next
+                    if currentPage<=pageQuantity-5
+                        li.page-item
+                            a.page-link(href='/products?page='+(currentPage+5)) #{">>"}
+        if q
+            nav(aria-label='Page navigation example')
+                ul.pagination.justify-content-center
+                    if currentPage>5
+                        li.page-item
+                            a.page-link(href='/products/search?page='+(currentPage-5)+'&q='+q) #{"<<"}
+                    if currentPage>1
+                        li.page-item
+                            a.page-link(href='/products/search?page='+(currentPage-1)+'&q='+q) Previous
+                    if currentPage>2
+                        li.page-item
+                            a.page-link(href='/products/search?page='+(currentPage-2)+'&q='+q) #{currentPage-2}
+                    if currentPage>1
+                        li.page-item
+                            a.page-link(href='/products/search?page='+(currentPage-1)+'&q='+q) #{currentPage-1}
+                    li.page-item
+                        a.page-link(href='/products/search?page='+(currentPage)+'&q='+q)
+                            b= currentPage
+                    if currentPage<=pageQuantity-1
+                        li.page-item
+                            a.page-link(href='/products/search?page='+(currentPage+1)+'&q='+q) #{currentPage+1}
+                    if currentPage<=pageQuantity-2
+                        li.page-item
+                            a.page-link(href='/products/search?page='+(currentPage+2)+'&q='+q) #{currentPage+2}
+                    if currentPage<=pageQuantity-1
+                        li.page-item
+                            a.page-link(href='/products/search?page='+(currentPage+1)+'&q='+q) Next
+                    if currentPage<=pageQuantity-5
+                        li.page-item
+                            a.page-link(href='/products/search?page='+(currentPage+5)+'&q='+q) #{">>"}

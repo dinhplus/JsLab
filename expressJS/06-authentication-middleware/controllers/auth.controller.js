@@ -2,7 +2,8 @@ const shortid = require('shortid');
 const md5 = require('md5');
 var db = require('../db');
 
-var users = db.get('users').value();
+
+// var users = db.get('users').value();
 
 module.exports.getLogin = (req, res, next) => {
     res.render('auth/login');
@@ -34,16 +35,15 @@ module.exports.postLogin = (req, res, next) => {
             signed: true,
         });
         //stored current session to db.
-        // console.log(res.cookies);
+
         user.currentSession = cookie;
-        console.log(user);
         db.get('users')
             .find({
                 id: user.id,
             })
             .assign(user)
             .write();
-        res.redirect('/');
+        res.redirect('/users');
     }
     next();
 };

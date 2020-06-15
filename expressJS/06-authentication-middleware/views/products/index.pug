@@ -10,7 +10,7 @@ block header
                         .card-body
                             h5.card-title #{product.name}
                             h5.card-title Price: #{product.price}
-                            a.btn.btn-primary(href='/products/'+product.id) Detail
+                            a.btn.btn-primary(href='/products/show/'+product.id) Detail
         if !q
             nav(aria-label='Page navigation example')
                 ul.pagination.justify-content-center

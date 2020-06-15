@@ -1,0 +1,23 @@
+extends ../layouts/header
+block header
+    h2 Create New Product
+    .container
+        if errors
+            each error in errors
+                .alert.alert-danger= error + " is required"
+
+        form(action="/products/create" method="post")
+                        .form-group
+                            label(for="name") Name
+                            input#name.form-control(name="name" type="text", value=value?value.name:"")
+                            label(for="price") price
+                            input#price.form-control(name="price" type="text", value=value?value.price:"")
+                            label(for="description") description
+                            input#description.form-control(name="description" type="text", value=value?value.description:"")
+                            label(for="quantity") quantity
+                            input#quantity.form-control(name="quantity" type="text", value=value?value.quantity:"")
+                            label(for="outdate") outdate
+                            input#outdate.form-control(name="outdate" type="date", value=value?value.outdate:"")
+                            label(for="image") image
+                            input#image.form-control(name="image" type="text", value=value?value.image:"http://dummyimage.com/500x500.bmp/cc0000/ffffff")
+                            button.btn.btn-primary Create!

@@ -8,5 +8,7 @@ const productValidate = require('../validate/product.validate');
 
 router.get('/', paginateMiddleware.paginate, productController.index);
 router.get('/search', productController.search, paginateMiddleware.paginate, productController.index);
-router.get('/:id', productController.show);
+router.get('/show/:id', productController.show);
+router.get('/create', productController.create);
+router.post('/create', productValidate.postProduct, productController.postProduct);
 module.exports = router;

@@ -2,8 +2,8 @@
 html(lang="en")
     head
         meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(href="/bootstrap/css/bootstrap.min.css", rel="stylesheet")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(href="/bootstrap/css/bootstrap.min.css" rel="stylesheet")
 
     body
         script(src="/bootstrap/js/jquery-3.4.1.min.js")
@@ -16,11 +16,11 @@ html(lang="en")
                         .alert.alert-danger= error + " is required"
                 if err
                     .alert.alert-danger= err
-            form(action="/login", method="post")
-                        .form-group
-                            label(for="name") email
-                            input#email.form-control(name="email",type="email", value=value?value.email:"")
-                            label(for="phone") passwords
-                            input#passwords.form-control(name="passwords",type="password", value=value?value.passwords:"")
-                            button.btn.btn-primary Login!
+            form(action="/admin/login" method="post")
+                .form-group
+                    label(for="name") email
+                    input#email.form-control(name="email" type="email", value=value?value.email:"")
+                    label(for="phone") passwords
+                    input#passwords.form-control(name="passwords" type="password", value=value?value.passwords:"")
+                    button.btn.btn-primary Login!
 .
