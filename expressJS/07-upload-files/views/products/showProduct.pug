@@ -1,0 +1,24 @@
+extends ../layouts/header
+block header
+    style(
+        .product-view{
+            display:flex
+        }
+    )
+    .container
+        .row
+            if !product
+                .alert.alert-danger Load data failed. Please try later!
+            if product
+                .product-view
+                    img(src= product.image, alt="alt")
+
+                    p
+                        h3.card-title #{product.name}
+
+                    p
+                        h4.card-title Price: #{product.price}
+
+                    p.card-title Description:  #{product.description}
+                if isAdmin
+                    a.btn.btn-primary(href='/products/edit/'+product.id) Edit
