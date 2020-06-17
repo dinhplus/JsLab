@@ -5,7 +5,7 @@ module.exports = function(req, res, next) {
     let isActive = db.get("session").find({
         id: req.signedCookies.sessionId
     }).value();
-    console.log(req.signedCookies.sessionId);
+    // console.log(req.signedCookies.sessionId);
     if (!isActive) {
         var sessionId = shortid.generate();
         res.cookie('sessionId', sessionId, {

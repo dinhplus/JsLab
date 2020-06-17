@@ -14,9 +14,7 @@ block header
                             if isAdmin
                                 a.btn.btn-primary(href='/products/edit/'+product.id) Edit
                             if !isAdmin
-                                //- form(action='/shop/cart/'+sessionId+'?pid='+product.id, method="post")
-                                    //- a.btn.btn-primary(href='/shop/cart/'+sessionId+'?pid='+product.id,method="POST",type="") Add to cart
-                                button#add-to-cart-btn.btn.btn-primary(type="button") Add to cart
+                                a#add-to-cart-btn.btn.btn-primary(type="button",href='/cart/add/'+product.id) Add to cart
 
         if !q
             nav(aria-label='Page navigation example')

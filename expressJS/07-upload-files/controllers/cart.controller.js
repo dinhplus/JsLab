@@ -4,22 +4,21 @@ module.exports.showCart = (req, res, next) => {
     next();
 }
 module.exports.addToCart = (req, res, next) => {
-    let sessionId = req.params.sessionId;
-    let productId = req.query.pid;
-    var session = db.get("session").find({
-        id: sessionId
-    });
-    var cart = session.cart ? session.cart : [];
-    cart.push({
-        "productId": productId
-    });
-    db.get("session").find({
-        id: sessionId
-    }).assign({
-        id: sessionId,
-        cart: cart
-    });
-    res.return;
+    let sessionId = req.signedCookies.sessionId;
+    let productId = req.params.productId;
 
+    if (!sessionId) {
+        res.redirect("/products");
+        return;
+    }
+    let count = db.get("session").find({
+            id: sessionId
+        }).get("cart." + productId, 0)
+        .value();
+    db.get("session").find({
+            id: sessionId
+        }).set("cart." + productId, count + 1)
+        .write();
+    res.redirect("/products");
     next();
 }

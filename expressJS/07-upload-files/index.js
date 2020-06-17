@@ -54,4 +54,4 @@ app.use('/admin', middleware.authMiddleWare, authRoute);
 /**
  * Cart route;
  */
-app.use('/shop/cart/', cartMiddlerware.goShopping, cartRoute);
+app.use('/cart', cartMiddlerware.goShopping, cartRoute);
