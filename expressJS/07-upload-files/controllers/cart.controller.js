@@ -5,8 +5,8 @@ module.exports.showCart = (req, res, next) => {
 }
 module.exports.addToCart = (req, res, next) => {
     let sessionId = req.signedCookies.sessionId;
-    let productId = req.params.productId;
-
+    // let productId = req.params.productId;
+    let productId = req.body.productId;
     if (!sessionId) {
         res.redirect("/products");
         return;
@@ -20,5 +20,6 @@ module.exports.addToCart = (req, res, next) => {
         }).set("cart." + productId, count + 1)
         .write();
     res.redirect("/products");
+    // return;
     next();
 }

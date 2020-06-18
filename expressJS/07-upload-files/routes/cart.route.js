@@ -9,6 +9,6 @@ const cartValidate = require('../validate/cart.validate');
 // router.get('/', (req, res) => {
 //     res.send("connect done!");
 // });
-router.get('/add/:productId', cartController.addToCart);
+router.post('/add', cartController.addToCart);
 
 module.exports = router;
