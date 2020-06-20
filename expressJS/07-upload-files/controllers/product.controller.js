@@ -4,6 +4,12 @@ var db = require('../db');
 
 module.exports.index = (req, res, next) => {
     // console.log(res.locals.pageQuantity);
+    var products = db.get("products").value();
+    for (let product of products) {
+        product.price = 25000;
+
+    }
+
     res.render('products/index', {
         products: res.locals.items,
         pageQuantity: parseInt(res.locals.pageQuantity),
