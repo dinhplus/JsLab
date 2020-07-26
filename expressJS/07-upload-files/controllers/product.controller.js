@@ -1,23 +1,33 @@
 const shortid = require('shortid');
 const md5 = require('md5');
-var db = require('../db');
+const db = require('../db');
+// var Product = require('../models/product.model');
 
 module.exports.index = (req, res, next) => {
     // console.log(res.locals.pageQuantity);
-    var products = db.get("products").value();
-    for (let product of products) {
-        product.price = 25000;
+    // var products = db.get("products").value();
+    // for (let product of products) {
+    //     product.price = 25000;
 
-    }
-
+    // }
     res.render('products/index', {
-        products: res.locals.items,
-        pageQuantity: parseInt(res.locals.pageQuantity),
-        currentPage: parseInt(res.locals.page),
-        q: res.locals.q,
-        isAdmin: res.locals.isAdmin,
-        sessionId: res.locals.sessionId
-    })
+            products: res.locals.items,
+            pageQuantity: parseInt(res.locals.pageQuantity),
+            currentPage: parseInt(res.locals.page),
+            q: res.locals.q,
+            isAdmin: res.locals.isAdmin,
+            sessionId: res.locals.sessionId
+        })
+        // Product.find({}).then((products) => {
+        //     res.render('products/index', {
+        //         products: res.locals.items,
+        //         pageQuantity: parseInt(res.locals.pageQuantity),
+        //         currentPage: parseInt(res.locals.page),
+        //         q: res.locals.q,
+        //         isAdmin: res.locals.isAdmin,
+        //         sessionId: res.locals.sessionId
+        //     })
+        // })
 
 }
 module.exports.search = (req, res, next) => {
