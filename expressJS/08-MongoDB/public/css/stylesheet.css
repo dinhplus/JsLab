@@ -1,0 +1,8 @@
+/* Issue
+ *Các layout bên dưới nổi lên trên làm không thể đặt postion fixed cho header
+ */
+
+.header {
+    position: relative;
+    top: 0px;
+}

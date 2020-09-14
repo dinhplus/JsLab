@@ -10,35 +10,39 @@ module.exports.index = (req, res, next) => {
         currentPage: parseInt(res.locals.page),
         q: res.locals.q,
         isAdmin: res.locals.isAdmin,
-    })
-
-}
+    });
+};
 module.exports.search = (req, res, next) => {
     let q = req.query.q;
 
     var matchProducts = db
         .get('products')
         .filter(
-            (product) => product.name.toLowerCase().indexOf(q.toLowerCase()) !== -1
+            (product) =>
+            product.name.toLowerCase().indexOf(q.toLowerCase()) !== -1
         )
         .value();
     res.locals.matchProducts = matchProducts;
     res.locals.q = q;
-    next()
-}
+    next();
+};
 module.exports.show = (req, res, next) => {
     let id = req.params.id;
     res.render('products/showProduct', {
-        product: db.get('products').find({
-            id: id
-        }).value()
-    })
-}
+        product: db
+            .get('products')
+            .find({
+                id: id,
+            })
+            .value(),
+    });
+};
 module.exports.create = (req, res, next) => {
+    if (!res.locals.isAdmin) res.redirect('/admin');
     res.render('products/create', {
         isAdmin: res.locals.isAdmin,
     });
-}
+};
 module.exports.postProduct = (req, res, next) => {
     if (!res.locals.isAdmin) {
         // Tạm thời cứ redirect về trang đăng nhập trước đã, về sau sẽ bổ sung phần bảo vệ dữ liệu đã nhập
@@ -49,4 +53,26 @@ module.exports.postProduct = (req, res, next) => {
         db.get('products').push(req.body).write();
         res.redirect('/products', 301);
     }
-}
+};
+module.exports.edit = (req, res, next) => {
+    let id = req.params.id;
+    res.render('products/edit', {
+        product: db
+            .get('products')
+            .find({
+                id: id,
+            })
+            .value(),
+    });
+};
+module.exports.updateProduct = (req, res, next) => {
+    let id = req.params.id;
+    db.get('products')
+        .find({
+            id: id,
+        })
+        .assign(req.body)
+        .write();
+    let linkRDR = '/products/show/' + id;
+    res.redirect(linkRDR);
+};

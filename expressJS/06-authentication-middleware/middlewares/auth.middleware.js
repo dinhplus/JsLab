@@ -13,7 +13,7 @@ module.exports.authMiddleWare = (req, res, next) => {
 
         res.locals.userName = user.name;
         res.locals.isAdmin = true;
-        console.log('new session with cookies ', req.signedCookies.userCookie, 'logined!');
+        // console.log('new session with cookies ', req.signedCookies.userCookie, 'logined!');
     }
     // res.send(res.locals.isAdmin);
     next();

@@ -11,6 +11,9 @@ block header
                             h5.card-title #{product.name}
                             h5.card-title Price: #{product.price}
                             a.btn.btn-primary(href='/products/show/'+product.id) Detail
+                            if isAdmin
+                                a.btn.btn-primary(href='/products/edit/'+product.id) Edit
+
         if !q
             nav(aria-label='Page navigation example')
                 ul.pagination.justify-content-center

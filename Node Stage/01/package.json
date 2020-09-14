@@ -1,0 +1,21 @@
+{
+  "name": "01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^9.4.0",
+    "camaro": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "koa": "^2.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

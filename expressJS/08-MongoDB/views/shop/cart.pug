@@ -1,0 +1,24 @@
+extends ../layouts/header
+block header
+    .container
+        .row
+            each item in items
+                .cart-item
+                    .item-avatar
+                        img(src=item.image, alt="alt")
+                    .item-content
+                        p
+                            strong= item.name
+                        p= "detail : " + item.description
+                        p
+                            strong cost:
+                            strong.item-cost(id= item.id)= (item.price*item.count)
+                        p
+                            input.input-quantity(type="number",value= item.count,id=item.id)
+                            button.btn.btn-primary.decrease-btn(type="button",id=item.id) Decrease
+                            button.btn.btn-primary.increase-btn(type='button',id=item.id) Increase
+
+            #total
+            button#submit-btn.btn.btn-primary(type="submit") Submit
+    script(src="/js/module/axios.min.js")
+    script(src="/js/cart.ajax.js")
